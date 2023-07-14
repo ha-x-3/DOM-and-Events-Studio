@@ -1,17 +1,5 @@
 // Write your JavaScript code here.
 // Remember to pay attention to page loading!
-/*
-
-5. When "...direction" buttons clicked:
-  a. Rocket image should move 10px in the direction clicked
-  b. If "Up" or "Down" clicked, shuttle height increase/decrease by 10,000 miles
-  (*Note use absolute positioning in CSS -
-   *Use parseInt to convert current position to a number)
-Bonus:
-1. Keep rocket from flying off background
-2. Return rocket to original position on background when it has been
-    landed or mission was aborted.
-*/
 
 window.addEventListener("load", function() {
 
