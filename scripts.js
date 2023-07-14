@@ -2,6 +2,7 @@
 // Remember to pay attention to page loading!
 /*
 1. Use window load event
+
 2. When the "Take off" button clicked:
   a. Window confirm "Confirm that the shuttle is ready for takeoff.".
       If yes, add parts b-d
@@ -30,3 +31,56 @@ Bonus:
 2. Return rocket to original position on background when it has been
     landed or mission was aborted.
 */
+
+window.addEventListener("load", function() {
+  const up = document.getElementById("up");
+  const down = document.getElementById("down");
+  const right = document.getElementById("right");
+  const left = document.getElementById("left");
+  const takeOff = document.getElementById("takeoff");
+  const landing = document.getElementById("landing");
+  const missionAbort = document.getElementById("missionAbort");
+  const message = document.getElementById("flightStatus");
+  const background = document.getElementById("shuttleBackground");
+  const shuttleHeight = document.getElementById("spaceShuttleHeight");
+  const rocket = document.getElementById("rocket");
+  rocket.style.position = "absolute";
+  //console.log(response);
+
+  takeOff.addEventListener("click", function(){
+    let response = window.confirm("Confirm that the shuttle is ready for takeoff.");
+    if (response) {
+      message.innerHTML = "Shuttle in flight.";
+      background.style.backgroundColor = "blue";
+      shuttleHeight.innerHTML = 10000;
+    }
+  })
+
+  landing.addEventListener("click", function() {
+    window.alert("The shuttle is landing. Landing gear engaged.");
+    message.innerHTML = "The shuttle has landed.";
+    background.style.backgroundColor = "green";
+    shuttleHeight.innerHTML = 0;
+  })
+
+  missionAbort.addEventListener("click", function() {
+    let response = window.confirm("Confirm that you want to abort the mission.");
+    if (response) {
+      message.innerHTML = "Mission Aborted";
+      background.style.backgroundColor = "green";
+      shuttleHeight.innerHTML = 0;
+    }
+  })
+
+  up.addEventListener("click", function(){
+    //Move rocket 10px
+    let position = parseInt(rocket.style.bottom);
+    position = position + 10 + "px";
+    rocket.style.bottom = position;
+  })
+
+  
+
+
+//
+})
